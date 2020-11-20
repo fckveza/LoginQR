@@ -44,7 +44,7 @@ def LoginWithCertificate(cert):
      print("Error : ", sagne.status_code)
   while "sagne" not in sagne:
     time.sleep(4)
-    ve = requests.get(hostVH+"gettoken="+apikey, json=headerLine)
+    ve = requests.get(hostVH+"gettoken="+apikey)
     if ve.status_code == 200:
       cok = ve.json()
       if cok["result"]["token"] != "":
