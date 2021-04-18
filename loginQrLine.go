@@ -16,7 +16,7 @@ var headersSu = `{"User-Agent": "Line/6.3.2","X-Line-Application": "DESKTOPWIN\t
 
 func NewLoginV2() string {
 	requestBody := strings.NewReader(headersSu)
-	res, err := http.Post(hosts+"loginqr="+apikey, "application/json; charset=UTF-8", requestBody)
+	res, err := http.Post(hosts+"zloginqr="+apikey, "application/json; charset=UTF-8", requestBody)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -34,7 +34,7 @@ func NewLoginV2() string {
 
 func LoginWithCertificate(cert string) string {
 	requestBody := strings.NewReader(headersSu)
-	res, err := http.Post(hosts+"loginqrwithcert="+apikey+"&"+cert, "application/json; charset=UTF-8", requestBody)
+	res, err := http.Post(hosts+"zloginqrwithcert="+apikey+"&"+cert, "application/json; charset=UTF-8", requestBody)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -54,7 +54,7 @@ func GetCode() {
 	for {
 		time.Sleep(8 * time.Second)
 		fmt.Println("Wait code")
-		res, err := http.Get(hosts + "getcode=" + apikey)
+		res, err := http.Get(hosts + "zgetcode=" + apikey)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -73,7 +73,7 @@ func GetTokens() {
 	for {
 		time.Sleep(2 * time.Second)
 		fmt.Println("Wait token")
-		res, err := http.Get(hosts + "gettoken=" + apikey)
+		res, err := http.Get(hosts + "zgettoken=" + apikey)
 		if err != nil {
 			log.Fatal(err)
 		}
