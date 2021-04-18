@@ -38,7 +38,7 @@ def LoginWithCertificate(cert):
   else:
      print("Error : ", sagne.status_code)
   time.sleep(4)
-  ve = requests.get(hostVH+"gettoken="+apikey)
+  ve = requests.get(hostVH+"zgettoken="+apikey)
   if ve.status_code == 200:
       cok = ve.json()
       if cok["result"]["token"] != "":
